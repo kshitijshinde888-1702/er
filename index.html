@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="E.R. Automotives - Premier manufacturer of precision machined, turned, and forging components for the automotive and allied industries. IATF 16949 Certified. Rohtak, Haryana.">
+<meta name="keywords" content="precision machined components, turned components, forging, automotive, Rohtak, Haryana, IATF 16949">
+<title>E.R. Automotives | Precision Engineering for Automotive Excellence</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  /* ===========================
+     RESET & BASE
+  =========================== */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --red: #C0392B;
+    --accent: #E83A2E;
+    --dark: #0D0D0D;
+    --dark2: #0f0f0f;
+    --dark3: #0a0a0a;
+    --white: #ffffff;
+    --silver: #8a9bb0;
+    --light: #f4f5f7;
+    --text-muted: rgba(255,255,255,0.45);
+    --text-mid: rgba(255,255,255,0.65);
+    --border: rgba(255,255,255,0.07);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--dark);
+    color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  /* ===========================
+     NAVIGATION
+  =========================== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(13,13,13,0.93);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    transition: padding 0.3s;
+  }
+
+  nav.scrolled { padding: 12px 48px; }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 3px;
+    color: var(--white);
+  }
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-mid);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--accent);
+    color: var(--white);
+    padding: 10px 24px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .nav-cta:hover { background: #c92e23; }
+  .nav-cta:active { transform: scale(0.98); }
+
+  /* Hamburger (mobile) */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .hamburger span {
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    transition: all 0.3s;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 60px; left: 0; right: 0;
+    background: rgba(13,13,13,0.98);
+    z-index: 999;
+    padding: 32px 48px;
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    gap: 24px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: var(--text-mid);
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-menu a:hover { color: var(--white); }
+
+  /* ===========================
+     HERO
+  =========================== */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 140px 64px 160px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(60px, 7vw, 90px);
+    line-height: 0.92;
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+    color: var(--white);
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+  }
+  .hero-title span { color: var(--accent); }
+
+  .hero-desc {
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--text-muted);
+    max-width: 420px;
+    margin-bottom: 48px;
+    font-weight: 300;
+    animation: fadeUp 0.8s ease 0.15s forwards;
+    opacity: 0;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s ease 0.3s forwards;
+    opacity: 0;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--white);
+    padding: 14px 36px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.1s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: #c92e23; }
+  .btn-primary:active { transform: scale(0.98); }
+
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.25);
+    color: var(--text-mid);
+    padding: 14px 36px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: none;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover {
+    border-color: rgba(255,255,255,0.6);
+    color: var(--white);
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a1a2e 0%, #0f1729 50%, #0d1117 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-gear-svg {
+    opacity: 0.3;
+    animation: rotateSlow 30s linear infinite;
+  }
+
+  @keyframes rotateSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--dark) 0%, transparent 40%);
+  }
+
+  /* Hero stat strip */
+  .hero-stats {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    display: flex;
+    background: rgba(0,0,0,0.78);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    z-index: 5;
+  }
+
+  .stat-item {
+    flex: 1;
+    padding: 24px 20px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.07);
+  }
+  .stat-item:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 38px;
+    letter-spacing: 2px;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* ===========================
+     TICKER STRIP
+  =========================== */
+  .ticker {
+    background: var(--accent);
+    padding: 13px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .ticker-inner {
+    display: inline-flex;
+    animation: tick 28s linear infinite;
+  }
+
+  .ticker-inner span {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 0 36px;
+  }
+
+  .ticker-inner span::after {
+    content: "◆";
+    margin-left: 36px;
+    opacity: 0.55;
+  }
+
+  @keyframes tick {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ===========================
+     ABOUT
+  =========================== */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--dark2);
+    border-top: 1px solid var(--border);
+  }
+
+  .about-text {
+    padding: 100px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid var(--border);
+  }
+
+  .about-certs {
+    padding: 100px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 4.5vw, 56px);
+    line-height: 1.0;
+    letter-spacing: 1px;
+    margin-bottom: 28px;
+  }
+
+  .section-body {
+    font-size: 15px;
+    line-height: 1.95;
+    color: var(--text-muted);
+    font-weight: 300;
+  }
+
+  .read-more-link {
+    display: inline-block;
+    margin-top: 36px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    transition: letter-spacing 0.2s;
+  }
+  .read-more-link:hover { letter-spacing: 3px; }
+
+  .cert-card {
+    border: 1px solid var(--border);
+    padding: 28px 32px;
+    border-radius: 4px;
+    transition: border-color 0.2s, background 0.2s;
+    cursor: default;
+  }
+  .cert-card:hover {
+    border-color: rgba(232,58,46,0.5);
+    background: rgba(232,58,46,0.03);
+  }
+
+  .cert-card-icon {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  .cert-card-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+  }
+
+  .cert-card-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ===========================
+     PRODUCTS
+  =========================== */
+  .products {
+    padding: 120px 64px;
+    background: var(--dark);
+  }
+
+  .products-header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .product-card {
+    background: var(--dark);
+    padding: 56px 40px;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transition: background 0.3s;
+  }
+  .product-card:hover { background: #141414; }
+  .product-card:hover .prod-num { color: var(--accent); }
+
+  .prod-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    color: rgba(255,255,255,0.05);
+    position: absolute;
+    top: 16px; right: 20px;
+    letter-spacing: 2px;
+    transition: color 0.3s;
+    line-height: 1;
+  }
+
+  .prod-icon {
+    width: 48px;
+    height: 3px;
+    background: var(--accent);
+    margin-bottom: 28px;
+    transition: width 0.3s;
+  }
+  .product-card:hover .prod-icon { width: 64px; }
+
+  .prod-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+
+  .prod-desc {
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--text-muted);
+    font-weight: 300;
+  }
+
+  /* ===========================
+     CUSTOMERS
+  =========================== */
+  .customers {
+    padding: 100px 64px;
+    background: var(--dark3);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .customers-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .customer-logos {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+  }
+
+  .cust-logo {
+    border: 1px solid var(--border);
+    padding: 40px 24px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 14px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 1px;
+    transition: all 0.2s;
+    cursor: default;
+  }
+  .cust-logo:hover {
+    border-color: rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.02);
+  }
+
+  /* ===========================
+     NEWS
+  =========================== */
+  .news {
+    padding: 100px 64px;
+    background: var(--dark);
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+
+  .news-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .news-card:hover {
+    border-color: rgba(255,255,255,0.2);
+    transform: translateY(-4px);
+  }
+
+  .news-img {
+    height: 180px;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .news-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.4) 100%);
+  }
+
+  .news-body { padding: 28px 28px 32px; }
+
+  .news-date {
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .news-title {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  .news-excerpt {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  /* ===========================
+     CONTACT STRIP
+  =========================== */
+  .contact-strip {
+    background: var(--accent);
+    padding: 80px 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .contact-strip-text h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 4vw, 52px);
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+
+  .contact-strip-text p {
+    font-size: 15px;
+    opacity: 0.82;
+    margin-top: 10px;
+    font-weight: 300;
+  }
+
+  .contact-strip-right {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-end;
+  }
+
+  .contact-strip-info {
+    font-size: 14px;
+    opacity: 0.85;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-white {
+    background: var(--white);
+    color: var(--accent);
+    padding: 16px 40px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .btn-white:hover { background: #f0f0f0; }
+  .btn-white:active { transform: scale(0.98); }
+
+  /* ===========================
+     ENQUIRE MODAL
+  =========================== */
+  .modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .modal-backdrop.open { display: flex; }
+
+  .modal {
+    background: #141414;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 48px;
+    width: 100%;
+    max-width: 520px;
+    position: relative;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 20px; right: 24px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+  .modal-close:hover { color: var(--white); }
+
+  .modal-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .modal-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    font-weight: 300;
+  }
+
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 3px;
+    padding: 12px 16px;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    transition: border-color 0.2s;
+    outline: none;
+    -webkit-appearance: none;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus { border-color: var(--accent); }
+  .form-group textarea { min-height: 100px; resize: vertical; }
+  .form-group select option { background: #141414; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .btn-submit {
+    width: 100%;
+    background: var(--accent);
+    color: var(--white);
+    padding: 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+  }
+  .btn-submit:hover { background: #c92e23; }
+
+  /* ===========================
+     FOOTER
+  =========================== */
+  footer {
+    background: #050505;
+    padding: 72px 64px 40px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 56px;
+  }
+
+  .footer-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+  .footer-brand span { color: var(--accent); }
+
+  .footer-tagline {
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+    line-height: 2;
+    font-weight: 300;
+  }
+
+  .footer-contact-detail {
+    margin-top: 20px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+  .footer-contact-detail a { color: var(--accent); transition: opacity 0.2s; }
+  .footer-contact-detail a:hover { opacity: 0.8; }
+
+  .footer-col h4 {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+
+  .footer-col a {
+    display: block;
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 12px;
+    transition: color 0.2s;
+    font-weight: 300;
+  }
+  .footer-col a:hover { color: var(--white); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.2);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* ===========================
+     SCROLL REVEAL ANIMATION
+  =========================== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===========================
+     RESPONSIVE - TABLET
+  =========================== */
+  @media (max-width: 1024px) {
+    nav { padding: 16px 32px; }
+    nav.scrolled { padding: 12px 32px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .mobile-menu { padding: 32px; }
+
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 120px 32px 80px; }
+    .hero-right { height: 340px; }
+    .hero-stats { position: static; }
+
+    .about { grid-template-columns: 1fr; }
+    .about-text { padding: 72px 40px; border-right: none; border-bottom: 1px solid var(--border); }
+    .about-certs { padding: 72px 40px; }
+
+    .products { padding: 80px 32px; }
+    .product-grid { grid-template-columns: 1fr; }
+
+    .customers { padding: 72px 32px; }
+    .customer-logos { grid-template-columns: repeat(3, 1fr); }
+
+    .news { padding: 72px 32px; }
+    .news-grid { grid-template-columns: 1fr 1fr; }
+
+    .contact-strip { padding: 60px 32px; }
+    .contact-strip-right { align-items: flex-start; }
+
+    footer { padding: 60px 32px 32px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  }
+
+  /* ===========================
+     RESPONSIVE - MOBILE
+  =========================== */
+  @media (max-width: 640px) {
+    nav { padding: 14px 20px; }
+    .hero-left { padding: 100px 20px 60px; }
+    .hero-right { height: 260px; }
+    .stat-item { padding: 18px 12px; }
+    .stat-num { font-size: 28px; }
+
+    .about-text, .about-certs { padding: 56px 20px; }
+    .products { padding: 60px 20px; }
+    .product-card { padding: 40px 28px; }
+
+    .customers { padding: 56px 20px; }
+    .customer-logos { grid-template-columns: repeat(2, 1fr); }
+
+    .news { padding: 56px 20px; }
+    .news-grid { grid-template-columns: 1fr; }
+
+    .contact-strip { padding: 48px 20px; flex-direction: column; }
+    .contact-strip-right { align-items: stretch; }
+    .contact-strip-info { display: none; }
+
+    footer { padding: 48px 20px 28px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+
+    .modal { padding: 32px 20px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========================
+     NAVIGATION
+======================== -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">E<span>.</span>R<span>.</span> Automotives</a>
+  <ul class="nav-links">
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#customers">Customers</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="#contact">Career</a></li>
+  </ul>
+  <button class="nav-cta" onclick="openModal()">Enquire Now</button>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMenu()">About Us</a>
+  <a href="#products" onclick="toggleMenu()">Products</a>
+  <a href="#customers" onclick="toggleMenu()">Customers</a>
+  <a href="#news" onclick="toggleMenu()">News & Updates</a>
+  <a href="mailto:sale@ergroup.in" onclick="toggleMenu()">Career</a>
+  <a href="#" onclick="openModal(); toggleMenu();" style="color:var(--accent)">Enquire Now →</a>
+</div>
+
+<!-- ========================
+     HERO
+======================== -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Est. · Rohtak, Haryana · India</div>
+    <h1 class="hero-title">
+      Precision<br>
+      <span>Engineered</span><br>
+      Excellence
+    </h1>
+    <p class="hero-desc">
+      Premier manufacturer of precision machined, turned, and forging components for the automotive and allied industries — delivering quality that powers vehicles worldwide.
+    </p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-primary">Our Products</a>
+      <a href="#about" class="btn-outline">Company Profile</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <!-- Decorative engineering gear graphic -->
+    <svg class="hero-gear-svg" width="440" height="440" viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="220" cy="220" r="170" fill="none" stroke="#C0392B" stroke-width="1"/>
+      <circle cx="220" cy="220" r="130" fill="none" stroke="#C0392B" stroke-width="0.5" stroke-dasharray="10,5"/>
+      <circle cx="220" cy="220" r="90" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+      <circle cx="220" cy="220" r="50" fill="none" stroke="#C0392B" stroke-width="2"/>
+      <circle cx="220" cy="220" r="14" fill="#C0392B"/>
+      <!-- Spokes -->
+      <line x1="220" y1="50" x2="220" y2="170" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+      <line x1="220" y1="270" x2="220" y2="390" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+      <line x1="50" y1="220" x2="170" y2="220" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+      <line x1="270" y1="220" x2="390" y2="220" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+      <line x1="100" y1="100" x2="162" y2="162" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      <line x1="278" y1="278" x2="340" y2="340" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      <line x1="340" y1="100" x2="278" y2="162" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      <line x1="100" y1="340" x2="162" y2="278" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      <!-- Gear teeth -->
+      <rect x="210" y="46" width="20" height="12" rx="3" fill="#C0392B"/>
+      <rect x="210" y="382" width="20" height="12" rx="3" fill="#C0392B"/>
+      <rect x="46" y="210" width="12" height="20" rx="3" fill="#C0392B"/>
+      <rect x="382" y="210" width="12" height="20" rx="3" fill="#C0392B"/>
+      <rect x="291" y="69" width="12" height="10" rx="2" fill="rgba(192,57,43,0.6)" transform="rotate(45 297 74)"/>
+      <rect x="116" y="356" width="12" height="10" rx="2" fill="rgba(192,57,43,0.6)" transform="rotate(45 122 361)"/>
+      <rect x="357" y="288" width="10" height="12" rx="2" fill="rgba(192,57,43,0.6)" transform="rotate(45 362 294)"/>
+      <rect x="72" y="114" width="10" height="12" rx="2" fill="rgba(192,57,43,0.6)" transform="rotate(45 77 120)"/>
+      <!-- Crosshair guides -->
+      <line x1="220" y1="0" x2="220" y2="440" stroke="rgba(192,57,43,0.06)" stroke-width="1"/>
+      <line x1="0" y1="220" x2="440" y2="220" stroke="rgba(192,57,43,0.06)" stroke-width="1"/>
+    </svg>
+    <div class="hero-overlay"></div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">25+</div>
+      <div class="stat-label">Years of Legacy</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">50+</div>
+      <div class="stat-label">OEM Customers</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Manufacturing Plants</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">IATF</div>
+      <div class="stat-label">16949 Certified</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     TICKER
+======================== -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner">
+    <span>Precision Machined Components</span>
+    <span>Turned Components</span>
+    <span>Forging Excellence</span>
+    <span>Automotive Grade Quality</span>
+    <span>IATF 16949 Certified</span>
+    <span>India 5000 Best MSME Award</span>
+    <span>Winner · Best MSME 2023</span>
+    <span>Top 10 Manufacturers Haryana</span>
+    <!-- Duplicate for seamless loop -->
+    <span>Precision Machined Components</span>
+    <span>Turned Components</span>
+    <span>Forging Excellence</span>
+    <span>Automotive Grade Quality</span>
+    <span>IATF 16949 Certified</span>
+    <span>India 5000 Best MSME Award</span>
+    <span>Winner · Best MSME 2023</span>
+    <span>Top 10 Manufacturers Haryana</span>
+  </div>
+</div>
+
+<!-- ========================
+     ABOUT
+======================== -->
+<section class="about" id="about">
+  <div class="about-text reveal">
+    <div class="section-label">Who We Are</div>
+    <h2 class="section-title">A Legacy of<br>Precision</h2>
+    <p class="section-body">
+      E.R. Automotives is your trusted partner in precision engineering and manufacturing for the automotive and general allied industries. With decades of excellence, we have established ourselves as a premier provider of high-quality precision machined, turned, and forging components.
+      <br><br>
+      Our commitment to innovation, quality, and customer satisfaction has driven us to the forefront of the industry — delivering exceptional solutions that power vehicles and industries worldwide from our facility in Rohtak, Haryana.
+    </p>
+    <a href="https://ergroup.in/about.html" class="read-more-link" target="_blank" rel="noopener">Read Company Profile →</a>
+  </div>
+
+  <div class="about-certs reveal">
+    <div class="cert-card">
+      <div class="cert-card-icon">★ Award · 2023</div>
+      <div class="cert-card-title">India 5000 Best MSME</div>
+      <div class="cert-card-desc">Recognized among India's top 5000 MSMEs for manufacturing excellence and commitment to quality innovation.</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-card-icon">✓ Certification</div>
+      <div class="cert-card-title">IATF 16949 Certified</div>
+      <div class="cert-card-desc">International Automotive Task Force quality management certification — ensuring zero-defect, consistent components for our global customers.</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-card-icon">◆ Recognition · 2024</div>
+      <div class="cert-card-title">Top 10 Manufacturers in Haryana</div>
+      <div class="cert-card-desc">Ranked among the top 10 manufacturers in Haryana, recognized for precision engineering leadership in the region.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     PRODUCTS
+======================== -->
+<section class="products" id="products">
+  <div class="products-header reveal">
+    <div class="section-label">What We Make</div>
+    <h2 class="section-title">Our Product Range</h2>
+  </div>
+
+  <div class="product-grid">
+    <div class="product-card reveal">
+      <div class="prod-num">01</div>
+      <div class="prod-icon"></div>
+      <div class="prod-title">Precision Machined Components</div>
+      <div class="prod-desc">High-tolerance machined parts crafted to exacting specifications for critical automotive applications where dimensional accuracy and repeatability are non-negotiable.</div>
+    </div>
+    <div class="product-card reveal">
+      <div class="prod-num">02</div>
+      <div class="prod-icon"></div>
+      <div class="prod-title">Turned Components</div>
+      <div class="prod-desc">CNC and precision turned components with superior surface finish, tight tolerances, and absolute consistency across high-volume production runs for leading OEMs.</div>
+    </div>
+    <div class="product-card reveal">
+      <div class="prod-num">03</div>
+      <div class="prod-icon"></div>
+      <div class="prod-title">Forging Excellence</div>
+      <div class="prod-desc">Forged components engineered for maximum strength, durability, and reliability — built to withstand the most demanding automotive and industrial environments.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================
+     CUSTOMERS
+======================== -->
+<section class="customers" id="customers">
+  <div class="customers-header reveal">
+    <div class="section-label">Trusted By</div>
+    <h2 class="section-title">Our Customers</h2>
+  </div>
+  <div class="customer-logos reveal">
+    <!-- Replace these with your actual customer names or logos -->
+    <div class="cust-logo">Maruti Suzuki</div>
+    <div class="cust-logo">Honda</div>
+    <div class="cust-logo">Hero MotoCorp</div>
+    <div class="cust-logo">Bajaj Auto</div>
+    <div class="cust-logo">Mitsubishi</div>
+    <div class="cust-logo">TVS Motors</div>
+    <div class="cust-logo">Tata Motors</div>
+    <div class="cust-logo">Ashok Leyland</div>
+    <div class="cust-logo">Eicher</div>
+    <div class="cust-logo">Yamaha</div>
+  </div>
+</section>
+
+<!-- ========================
+     NEWS
+======================== -->
+<section class="news" id="news">
+  <div class="section-label reveal">Latest Updates</div>
+  <h2 class="section-title reveal">News &amp; Events</h2>
+
+  <div class="news-grid">
+    <a class="news-card reveal" href="https://ergroup.in/images/top10manufacturer.pdf" target="_blank" rel="noopener">
+      <div class="news-img">Manufacturing · Haryana</div>
+      <div class="news-body">
+        <div class="news-date">Nov 16, 2024</div>
+        <div class="news-title">Top 10 Manufacturers in Haryana</div>
+        <div class="news-excerpt">E.R. Automotives recognized among Haryana's leading manufacturing companies for precision engineering excellence.</div>
+      </div>
+    </a>
+
+    <a class="news-card reveal" href="https://ergroup.in/images/Rohtak_Jagran.pdf" target="_blank" rel="noopener">
+      <div class="news-img">Press · Recognition</div>
+      <div class="news-body">
+        <div class="news-date">Oct 10, 2024</div>
+        <div class="news-title">Appreciation in Rohtak Jagran</div>
+        <div class="news-excerpt">Regional media coverage highlighting the company's significant contribution to the local manufacturing and employment ecosystem.</div>
+      </div>
+    </a>
+
+    <a class="news-card reveal" href="https://ergroup.in/training_mitsubishi.html" target="_blank" rel="noopener">
+      <div class="news-img">Training · Development</div>
+      <div class="news-body">
+        <div class="news-date">Feb 20, 2024</div>
+        <div class="news-title">Training at Mitsubishi Electric</div>
+        <div class="news-excerpt">Our technical team undergoes advanced training at Mitsubishi Electric, elevating our manufacturing capabilities and quality standards.</div>
+      </div>
+    </a>
+
+    <a class="news-card reveal" href="https://ergroup.in/holi_celebration.html" target="_blank" rel="noopener">
+      <div class="news-img">Culture · Events</div>
+      <div class="news-body">
+        <div class="news-date">Mar 23, 2024</div>
+        <div class="news-title">Holi Celebration at E.R. Automotives</div>
+        <div class="news-excerpt">Our team comes together to celebrate the festival of colours, reflecting our inclusive and vibrant company culture.</div>
+      </div>
+    </a>
+
+    <a class="news-card reveal" href="https://ergroup.in/best_msme_awards.html" target="_blank" rel="noopener">
+      <div class="news-img">Award · Excellence</div>
+      <div class="news-body">
+        <div class="news-date">Dec 23, 2023</div>
+        <div class="news-title">Winner of India 5000 Best MSME Awards</div>
+        <div class="news-excerpt">Proud recipients of the India 5000 Best MSME Award — a national recognition of our manufacturing excellence and growth.</div>
+      </div>
+    </a>
+
+    <a class="news-card reveal" href="https://ergroup.in/eye_check_camp.html" target="_blank" rel="noopener">
+      <div class="news-img">CSR · Community</div>
+      <div class="news-body">
+        <div class="news-date">Sep 12, 2023</div>
+        <div class="news-title">Eye Check Camp</div>
+        <div class="news-excerpt">E.R. Automotives organizes a free eye check-up camp for employees and the local community — giving back beyond manufacturing.</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ========================
+     CONTACT STRIP
+======================== -->
+<div class="contact-strip" id="contact">
+  <div class="contact-strip-text">
+    <h2>Ready to Work Together?</h2>
+    <p>Get in touch for product enquiries, partnerships, or career opportunities.</p>
+  </div>
+  <div class="contact-strip-right">
+    <div class="contact-strip-info">
+      +91-01262-471554 &nbsp;|&nbsp; sale@ergroup.in
+    </div>
+    <button class="btn-white" onclick="openModal()">Send Enquiry</button>
+  </div>
+</div>
+
+<!-- ========================
+     FOOTER
+======================== -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">E<span>.</span>R<span>.</span> Automotives</div>
+      <p class="footer-tagline">
+        175, HSIIDC, I.E. Kutana,<br>
+        Hissar Road, Rohtak – 124001<br>
+        Haryana, India
+      </p>
+      <div class="footer-contact-detail">
+        <a href="tel:+910126247155">+91-01262-471554</a><br>
+        <a href="mailto:sale@ergroup.in">sale@ergroup.in</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="https://ergroup.in/about.html" target="_blank">About Us</a>
+      <a href="https://ergroup.in/plants.html" target="_blank">Our Facilities</a>
+      <a href="https://ergroup.in/certification.html" target="_blank">Certifications</a>
+      <a href="https://ergroup.in/career.html" target="_blank">Career</a>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a href="#products">Precision Machined</a>
+      <a href="#products">Turned Components</a>
+      <a href="#products">Forging</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="https://ergroup.in/customers.html" target="_blank">Our Customers</a>
+      <a href="https://ergroup.in/news.html" target="_blank">News & Updates</a>
+      <a href="https://ergroup.in/contact.html" target="_blank">Contact Us</a>
+      <a href="#" onclick="openModal()">Enquire Now</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 E.R. Automotives. All Rights Reserved.</span>
+    <span>Precision Engineering · Rohtak, Haryana, India</span>
+  </div>
+</footer>
+
+<!-- ========================
+     ENQUIRY MODAL
+======================== -->
+<div class="modal-backdrop" id="modalBackdrop" onclick="closeModalOutside(event)">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+    <div class="modal-title" id="modal-title">Enquire Now</div>
+    <p class="modal-sub">Fill in your details and our team will get back to you within 24 hours.</p>
+
+    <form id="enquiryForm" onsubmit="submitForm(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First Name *</label>
+          <input type="text" id="fname" name="fname" placeholder="Rajesh" required>
+        </div>
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lname" placeholder="Sharma">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="company">Company Name *</label>
+        <input type="text" id="company" name="company" placeholder="Your Company Pvt. Ltd." required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="product">Product Interest</label>
+        <select id="product" name="product">
+          <option value="">Select a product category</option>
+          <option>Precision Machined Components</option>
+          <option>Turned Components</option>
+          <option>Forging Components</option>
+          <option>General Enquiry</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us about your requirements..."></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Send Enquiry</button>
+    </form>
+
+    <div id="formSuccess" style="display:none;text-align:center;padding:32px 0">
+      <div style="font-size:36px;margin-bottom:16px">✓</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;margin-bottom:8px">Thank You!</div>
+      <p style="color:rgba(255,255,255,0.5);font-size:14px;font-weight:300">
+        Your enquiry has been received. We'll be in touch within 24 hours at <a href="mailto:sale@ergroup.in" style="color:var(--accent)">sale@ergroup.in</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ========================
+     JAVASCRIPT
+======================== -->
+<script>
+  /* --- Navbar scroll shrink --- */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  /* --- Mobile menu toggle --- */
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('open');
+  }
+
+  /* --- Modal --- */
+  function openModal() {
+    document.getElementById('modalBackdrop').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('modalBackdrop').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOutside(e) {
+    if (e.target === document.getElementById('modalBackdrop')) closeModal();
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  /* --- Form submit (client-side only — redirects to mailto) --- */
+  function submitForm(e) {
+    e.preventDefault();
+    const f = e.target;
+    const name = f.fname.value + ' ' + f.lname.value;
+    const company = f.company.value;
+    const email = f.email.value;
+    const phone = f.phone.value;
+    const product = f.product.value || 'General';
+    const message = f.message.value;
+
+    const subject = encodeURIComponent('Enquiry from ' + name + ' - ' + company);
+    const body = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Company: ' + company + '\n' +
+      'Email: ' + email + '\n' +
+      'Phone: ' + phone + '\n' +
+      'Product Interest: ' + product + '\n\n' +
+      'Message:\n' + message
+    );
+
+    window.location.href = 'mailto:sale@ergroup.in?subject=' + subject + '&body=' + body;
+
+    document.getElementById('enquiryForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+
+    setTimeout(() => {
+      document.getElementById('enquiryForm').style.display = 'block';
+      document.getElementById('formSuccess').style.display = 'none';
+      f.reset();
+      closeModal();
+    }, 4000);
+  }
+
+  /* --- Scroll reveal --- */
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80 * i);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
